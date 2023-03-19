@@ -7,8 +7,10 @@
 #define CROSS_SOCKETS_HPP
 
 #ifdef WIN32   // Windows
-
+#define MSG_NOSIGNAL 0
 #include <winsock2.h> 
+
+typedef SSIZE_T ssize_t;
 
 #elif defined(__linux__)    // Linux and POSIX
 

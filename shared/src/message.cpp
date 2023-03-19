@@ -27,7 +27,7 @@ namespace ASE
         header[3] = uint8_t(size >> 16); 
 
 
-        if(send(receiver_socket,header,size_t(4), MSG_NOSIGNAL) != 4)
+        if(send(receiver_socket,(char*)(header),size_t(4), MSG_NOSIGNAL) != 4)
         {
             throw RemoteConnectionException("Client disconnected during message header sending");
             return;
