@@ -48,7 +48,7 @@ int main(int argc, char const *argv[])
 
     };
 
-    server.internal_custom_message_analysis_lambda = [](ASE::Server<int,int> &server_ref, ASE::InternalMessage msg)
+    server.internal_custom_message_analysis_lambda = [](ASE::Server<int,int> &server_ref, ASE::InternalMessage msg, ASE::Frame to_send)
     {
 
     };

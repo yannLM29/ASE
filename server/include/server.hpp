@@ -97,7 +97,7 @@ namespace ASE
         std::function<void(Server<ClientDataStructure,ServerDataStructure> &server_ref, Message &to_send)> init_client_and_prepare_package_to_send_lambda; 
         std::function<void(Server<ClientDataStructure,ServerDataStructure> &server_ref, const std::vector<uint8_t> &data, std::vector<uint8_t> &to_send)> disconnection_lambda;
 
-        std::function<void(Server<ClientDataStructure,ServerDataStructure> &server_ref, InternalMessage &custom_message)> internal_custom_message_analysis_lambda;
+        std::function<void(Server<ClientDataStructure,ServerDataStructure> &server_ref, InternalMessage &custom_message, Frame to_send)> internal_custom_message_analysis_lambda;
 
         int timeout_limit;
         int server_id;
@@ -551,7 +551,7 @@ namespace ASE
                     break;
 
                 case CUSTOM:
-                    server_ref.internal_custom_message_analysis_lambda(server_ref, msg);
+                    server_ref.internal_custom_message_analysis_lambda(server_ref, msg, to_send);
                     break;
                 
                 default:
